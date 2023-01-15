@@ -38,14 +38,14 @@ class BinaryTree(object):
     def postorder_print(self, start, traversal):
         """Left->Right->Root"""
         if start:
-            traversal = self.preorder_print(start.right, traversal)
             traversal = self.preorder_print(start.left, traversal)
+            traversal = self.preorder_print(start.right, traversal)
             traversal += (str(start.value) + "-")
         return traversal
 
 # PreOrder: 1-2-4-5-3-6-7-8-
 #  InOrder: 4-2-5-1-6-3-7-8-
-#Postorder: 3-6-7-8-2-4-5-1-
+#Postorder: 2-4-5-3-6-7-8-1-
 #            Root: 1
 #            /     \
 #           2       3
