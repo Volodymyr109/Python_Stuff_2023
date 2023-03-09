@@ -6,3 +6,13 @@ def pat(n):
             print(x, end=" ")
         print("\r")
 pat(5)
+
+
+def patt(str, n):
+    x = 0
+    for i in range(0, n):
+        x +=1
+        for j in range(0, i + 1):
+            print(str, end=" ")
+        print("\r")
+patt("*", 5)
