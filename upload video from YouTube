@@ -1,4 +1,4 @@
-from pytube import Youtube
-link = " "
-yt = Youtube(link)
-yt.streams.first().download()n
+from pytube import YouTube
+link = "https://www.youtube.com/watch?v=0nouhZQqtx4&ab_channel=AnnenMayKantereit"
+yt = YouTube(link)
+yt.streams.first().download()
