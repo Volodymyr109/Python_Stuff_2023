@@ -10,10 +10,10 @@ special_chars = string.punctuation
 alphabet = letters + digits + special_chars
 
 # fix password length
-pwd_length = 12
+pwd_length = 10
 
 # generate a password string
-pwd = ''
+pwd = '# generate a password string: '
 for i in range(pwd_length):
   pwd += ''.join(secrets.choice(alphabet))
 
@@ -21,7 +21,7 @@ print(pwd)
 
 # generate password meeting constraints
 while True:
-  pwd = ''
+  pwd = '# generate password meeting constraints: '
   for i in range(pwd_length):
     pwd += ''.join(secrets.choice(alphabet))
 
