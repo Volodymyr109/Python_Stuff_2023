@@ -1,0 +1,20 @@
+import openai
+
+openai.api_key = "ypur secret api key"
+
+while True:
+
+    model_engine = "text-davinci-003"
+    promt = input('Enter new promt: ')
+    if 'exit' in promt or 'quit' in promt:
+        break
+
+    completion = openai.Completion.create(
+        engine=model_engine,
+        promt=promt,
+        max_tokens=1024,
+        n=1, stop=None,
+        temperature=0.5)
+
+    response = completion.choices[0].text
+    print(response)
