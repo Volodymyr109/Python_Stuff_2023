@@ -1,0 +1,22 @@
+num = 1234567890
+div = 321
+
+digits = list(map(int, str(num)))
+
+print(f"  {num} │ {div}")
+print("-", " "*len(digits), "├─" + "─"*max(len(str(div)), len(str(num // div))))
+print(" "*len(digits), "  │", num // div, end="\r")
+
+rem = offset = 0
+while digits:
+    rem = rem*10 + digits.pop(0)
+    if rem >= div:
+        if offset:
+            print(f"{'':<{offset}}  {rem}")
+            print(f"{'':<{offset}}-")
+        l = len(str(rem))
+        res, rem = divmod(rem, div)
+        print(f"{'':<{offset}}  {res*div:>{l}}")
+        print(f"{'':<{offset}}──", "─"*l, sep="")
+        offset += l - len(str(rem)) + (0 if rem else 1)
+print(f"{'':<{offset}}  {rem}")
