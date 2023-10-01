@@ -1,0 +1,15 @@
+from urllib.request import Request, urlopen
+from bs4 import BeautifulSoup
+import requests
+
+
+# Update the link of the item
+link = "https://www.buildingbricks.de/products/cobi-3034-sabaton-primo-victoria-b-ware"
+
+req = Request(link, headers={'User-Agent': 'Mozilla/5.0'})
+webpage = urlopen(req).read()
+
+with requests.Session() as c:
+    soup = BeautifulSoup(webpage, 'html5lib')
+    price = soup.find('span',attrs={'class':"visually-hidden"})['€289,99']
+    print(price)
